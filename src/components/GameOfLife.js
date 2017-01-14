@@ -19,8 +19,8 @@ class GameOfLife extends React.Component {
 
 GameOfLife.propTypes = {
   epoch: React.PropTypes.array.isRequired,
-  onStartEvolution: React.PropTypes.function,
-  onStopEvolution: React.PropTypes.function,
+  onStartEvolution: React.PropTypes.func,
+  onStopEvolution: React.PropTypes.func,
 };
 
 export default GameOfLife;
