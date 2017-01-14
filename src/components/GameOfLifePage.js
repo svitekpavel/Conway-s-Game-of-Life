@@ -1,36 +1,40 @@
 import React from 'react';
-import classNames from 'classnames';
-// import { Link } from 'react-router';
-// import '../styles/about-page.css';
 
-import GridCell from './GridCell';
+import GameOfLifeGrid from './GameOfLifeGrid';
+import getNextEpoch from '../utils/getNextEpoch';
+// import createGrid from '../utils/createGrid';
 
-const gridData = [
-  [0, 0, 0, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0],
+const initialGrid = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ];
 
 class GameOfLifePage extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      grid: initialGrid,
+      // grid: createGrid(50, 50),
+    };
+  }
   componentDidMount() {
     // start the evolution here
+    this.evolutionInterval = setInterval(() => {
+      this.setState({
+        grid: getNextEpoch(this.state.grid),
+      });
+    }, 500);
   }
-
-  renderRow(row) {
-    const rowNodes = row.map((c) => <GridCell cell={c}/>);
-    return <div className="row">{rowNodes}</div>;
-  }
-
-  renderGrid(grid) {
-    return grid.map((r) => this.renderRow(r));
+  componentWillUnmount() {
+    clearInterval(this.evolutionInterval);
   }
 
   render() {
-    const grid = this.renderGrid(gridData);
-
-    return <div className="grid">{grid}</div>;
+    return <GameOfLifeGrid epoch={this.state.grid}/>;
   }
 }
 
