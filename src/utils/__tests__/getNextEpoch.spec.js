@@ -47,7 +47,4 @@ describe('getNextEpoch', () => {
     expect(getNextEpoch(toad2)).to.deep.equal(toad1);
   });
 
-  console.log(`\n${getNextEpoch(blinker2)}`);
-  console.log(`\n${getNextEpoch(toad1)}`);
-
 });
