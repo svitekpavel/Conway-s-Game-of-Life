@@ -34,8 +34,21 @@ class GameOfLifePage extends React.Component {
   }
 
   render() {
-    return <GameOfLifeGrid epoch={this.state.grid}/>;
+    return (
+      <div>
+        <div className="">
+          <button onClick={this.props.onStartEvolution}>Start evolution</button>
+          <button onClick={this.props.onStopEvolution}>Stop evolution</button>
+        </div>
+        <GameOfLifeGrid epoch={this.state.grid}/>
+      </div>
+    );
   }
 }
+
+GameOfLifePage.propTypes = {
+  onStartEvolution: React.PropTypes.function,
+  onStopEvolution: React.PropTypes.function,
+};
 
 export default GameOfLifePage;
