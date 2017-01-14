@@ -6,7 +6,7 @@ import GridCell from './GridCell';
 class GameOfLifeGrid extends React.Component {
   renderRow(row) {
     const rowNodes = row.map((c) => <GridCell cell={c} key={uuid.v4()}/>);
-    return <div className="row">{rowNodes}</div>;
+    return <div className="row" key={uuid.v4()}>{rowNodes}</div>;
   }
   renderGrid(grid) {
     return grid.map((r) => this.renderRow(r));
