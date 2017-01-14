@@ -4,13 +4,14 @@ import GameOfLifeGrid from './GameOfLifeGrid';
 
 class GameOfLife extends React.Component {
   render() {
+    const { epoch, evolutionRunning } = this.props;
     return (
       <div>
         <div className="">
-          <button onClick={this.props.onStartEvolution}>Start evolution</button>
-          <button onClick={this.props.onStopEvolution}>Stop evolution</button>
+          {!evolutionRunning && <button onClick={this.props.onStartEvolution}>Start evolution</button>}
+          {evolutionRunning && <button onClick={this.props.onStopEvolution}>Stop evolution</button>}
         </div>
-        <GameOfLifeGrid epoch={this.props.epoch}/>
+        <GameOfLifeGrid epoch={epoch}/>
       </div>
     );
   }
