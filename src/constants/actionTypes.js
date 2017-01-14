@@ -1,6 +1,2 @@
-export const SAVE_FUEL_SAVINGS = 'SAVE_FUEL_SAVINGS';
-export const CALCULATE_FUEL_SAVINGS = 'CALCULATE_FUEL_SAVINGS';
-
-// GameOfLife action types
 export const SET_EPOCH = 'SET_EPOCH';
 export const SET_EVOLUTION_RUNNING = 'SET_EVOLUTION_RUNNING';
