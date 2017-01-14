@@ -13,7 +13,6 @@ class GameOfLifePage extends React.Component {
     super(props);
     this.handleStartEvolution = this.handleStartEvolution.bind(this);
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
-    this.processEvolution = this.processEvolution.bind(this);
   }
   componentDidMount() {
     // init epoch here
@@ -22,17 +21,16 @@ class GameOfLifePage extends React.Component {
     clearInterval(this.evolutionInterval);
   }
 
-  processEvolution() {
-    const { dispatch, epoch } = this.props;
-    console.log(epoch[2].join(''));
-    const nextEpoch = getNextEpoch(epoch);
-    dispatch(setEpoch(nextEpoch));
-  }
   handleStartEvolution() {
     // start the evolution here
     const { dispatch } = this.props;
     dispatch(setEvolutionRunning(true));
-    this.evolutionInterval = setInterval(this.processEvolution, 500);
+
+    this.evolutionInterval = setInterval(() => {
+      const { dispatch, epoch } = this.props;
+      const nextEpoch = getNextEpoch(epoch);
+      dispatch(setEpoch(nextEpoch));
+    }, 500);
   }
   handleStopEvolution() {
     const { dispatch } = this.props;
