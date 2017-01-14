@@ -15,7 +15,7 @@ class GameOfLifePage extends React.Component {
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
   }
   componentDidMount() {
-    // init epoch here
+    // you can start evolution here
   }
   componentWillUnmount() {
     clearInterval(this.evolutionInterval);
