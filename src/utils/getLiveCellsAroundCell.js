@@ -1,9 +1,6 @@
-
-// function getMinX(x) {
-//   return x-1 < 0 ? 0 : x;
-// }
-// function getMaxX(x, ) {}
-
+/**
+ * 
+ */
 export default function getLiveCellsAroundCell (x, y, grid) {
   const minX = x-1 < 0 ? 0 : x-1;
   const minY = y-1 < 0 ? 0 : y-1;
