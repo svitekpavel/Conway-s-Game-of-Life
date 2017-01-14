@@ -19,6 +19,7 @@ class GameOfLife extends React.Component {
 
 GameOfLife.propTypes = {
   epoch: React.PropTypes.array.isRequired,
+  evolutionRunning: React.PropTypes.bool.isRequired,
   onStartEvolution: React.PropTypes.func,
   onStopEvolution: React.PropTypes.func,
 };

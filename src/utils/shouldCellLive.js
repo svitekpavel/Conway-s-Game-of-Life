@@ -11,7 +11,7 @@ export default function shouldCellLive (cell, liveCellsAround) {
     if (liveCellsAround === 2 || liveCellsAround === 3) {
       return true;
     }
-    return false
+    return false;
   } else {
     if (liveCellsAround === 3) {
       return true;

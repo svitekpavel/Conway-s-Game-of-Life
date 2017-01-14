@@ -11,6 +11,10 @@ const getCellClasses = (cell) => {
 const GridCell = (props) => {
   const classes = getCellClasses(props.cell);
   return <span className={classNames(classes)}/>;
-}
+};
+
+GridCell.propTypes = {
+  cell: React.PropTypes.number.isRequired,
+};
 
 export default GridCell;

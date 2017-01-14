@@ -7,12 +7,12 @@ export function setEpoch(nextEpoch) {
   return {
     type: SET_EPOCH,
     epoch: nextEpoch,
-  }
+  };
 }
 
 export function setEvolutionRunning(isRunning) {
   return {
     type: SET_EVOLUTION_RUNNING,
     evolutionRunning: isRunning,
-  }
+  };
 }
