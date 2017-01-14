@@ -5,14 +5,14 @@ import App from './components/App';
 import HomePage from './components/HomePage';
 import FuelSavingsPage from './containers/FuelSavingsPage'; // eslint-disable-line import/no-named-as-default
 import AboutPage from './components/AboutPage';
-import GameOfLife from './components/GameOfLife';
+import GameOfLifePage from './containers/GameOfLifePage';
 import NotFoundPage from './components/NotFoundPage';
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage}/>
     <Route path="fuel-savings" component={FuelSavingsPage}/>
-    <Route path="game-of-life" component={GameOfLife}/>
+    <Route path="game-of-life" component={GameOfLifePage}/>
     <Route path="about" component={AboutPage}/>
     <Route path="*" component={NotFoundPage}/>
   </Route>
