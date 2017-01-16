@@ -1,3 +1,21 @@
-.alt-header {
-  color: green;
+/* About page */
+$primary-color: #3d99f5;
+
+a {
+  color: $primary-color;
+}
+
+p:first-of-type::first-letter {
+  color: $primary-color;
+  font-size: 40px;
+}
+
+.sidebar {
+  width: 150px;
+  float: left;
+  padding: 0px 15px 10px 0;
+}
+
+.photo {
+  width: 100%;
 }

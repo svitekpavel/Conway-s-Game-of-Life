@@ -13,8 +13,20 @@ body {
   font-weight: 300;
 }
 
+a {
+  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+}
+a:visited {
+  color: inherit;
+}
+
 nav {
   padding: 15px 20px 15px 0;
+}
+
+nav > a {
+  text-transform: uppercase;
 }
 
 .colorful {
@@ -53,23 +65,8 @@ button.stop {
   background-color: #ff4c23;
 }
 
-h2 {
-  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-  font-weight: 300;
-}
-
-a {
-  font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-a:visited {
-  color: inherit;
-}
-
 /* Grid styles */
 .grid {
-  // border: 1px solid grey;
   line-height: normal;
 }
 .row {
