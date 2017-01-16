@@ -7,9 +7,9 @@ class GameOfLife extends React.Component {
     const { epoch, evolutionRunning } = this.props;
     return (
       <div>
-        <div className="">
-          {!evolutionRunning && <button onClick={this.props.onStartEvolution}>Start evolution</button>}
-          {evolutionRunning && <button onClick={this.props.onStopEvolution}>Stop evolution</button>}
+        <div className="toolbar">
+          {!evolutionRunning && <button onClick={this.props.onStartEvolution} className="start">Start evolution</button>}
+          {evolutionRunning && <button onClick={this.props.onStopEvolution} className="stop">Stop evolution</button>}
         </div>
         <GameOfLifeGrid epoch={epoch}/>
       </div>
