@@ -4,8 +4,8 @@ body {
   font-size: 14px;
   line-height: 1.4em;
   color: #4d4d4d;
-  min-width: 230px;
-  max-width: 550px;
+  min-width: 470px;
+  max-width: 470px;
   margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
@@ -25,13 +25,8 @@ nav {
   font-size: 20px;
 }
 
-.jumbotron {
-  display: block;
-  text-align: left;
-}
-
 .toolbar {
-  padding: 0 0 10px 0;
+  padding: 10px 0 10px 0;
 }
 
 button {
