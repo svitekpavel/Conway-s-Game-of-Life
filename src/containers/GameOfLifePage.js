@@ -17,15 +17,24 @@ class GameOfLifePage extends React.Component {
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
   }
   componentDidMount() {
-    // you can start evolution here
     const { dispatch } = this.props;
 
-    // create grid and insert some patterns
-    let epoch = createGrid(30, 30);
-    epoch = gridInsertPattern('blinker2', epoch, 13, 15);
-    epoch = gridInsertPattern('glider', epoch, 10, 0);
-    epoch = gridInsertPattern('lwss', epoch, 0, 0);
-    epoch = gridInsertPattern('beacon', epoch, 20, 20);
+    // create grid and insert some nice patterns
+    let epoch = createGrid(38, 30);
+    epoch = gridInsertPattern('glider', epoch, 15, 7);
+    epoch = gridInsertPattern('lwss', epoch, 0, 5);
+
+    [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map((i) => {
+      epoch = gridInsertPattern('block', epoch, i, 0);
+    });
+
+    [0, 4, 8, 12, 16, 20, 24, 28, 32].map((i) => {
+      epoch = gridInsertPattern('blinker2', epoch, i+1, 20);
+    });
+
+    [0, 6, 12, 18, 24, 30].map((i) => {
+      epoch = gridInsertPattern('beacon', epoch, i+2, 26);
+    });
 
     dispatch(setEpoch(epoch));
   }
