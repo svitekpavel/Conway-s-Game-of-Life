@@ -8,12 +8,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <IndexLink to="/">Home</IndexLink>
-        {' | '}
-        <Link to="/game-of-life">Game of Life</Link>
-        {' | '}
-        <Link to="/about">About</Link>
-        <br/>
+        <nav>
+          <IndexLink to="/">Home</IndexLink>
+          {' | '}
+          <Link to="/about">About</Link>
+        </nav>
         {this.props.children}
       </div>
     );
