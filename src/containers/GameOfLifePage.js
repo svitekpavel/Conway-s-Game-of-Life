@@ -16,28 +16,35 @@ class GameOfLifePage extends React.Component {
     this.handleStartEvolution = this.handleStartEvolution.bind(this);
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
   }
+
   componentDidMount() {
     const { dispatch } = this.props;
 
     // create grid and insert some nice patterns
     let epoch = createGrid(38, 30);
+
+    // add simple glider and one Lightweight spaceship (LWSS)
     epoch = gridInsertPattern('glider', epoch, 15, 7);
     epoch = gridInsertPattern('lwss', epoch, 0, 5);
 
+    // add static blocks to top rows to expose colors
     [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36].map((i) => {
       epoch = gridInsertPattern('block', epoch, i, 0);
     });
 
+    // add nice blinkers to the bottom of the grid
     [0, 4, 8, 12, 16, 20, 24, 28, 32].map((i) => {
       epoch = gridInsertPattern('blinker2', epoch, i+1, 20);
     });
 
+    // add nice beacons to the very bottom of the grid
     [0, 6, 12, 18, 24, 30].map((i) => {
       epoch = gridInsertPattern('beacon', epoch, i+2, 26);
     });
 
     dispatch(setEpoch(epoch));
   }
+
   componentWillUnmount() {
     clearInterval(this.evolutionInterval);
   }
@@ -53,6 +60,7 @@ class GameOfLifePage extends React.Component {
       dispatch(setEpoch(nextEpoch));
     }, 500);
   }
+
   handleStopEvolution() {
     const { dispatch } = this.props;
     dispatch(setEvolutionRunning(false));
