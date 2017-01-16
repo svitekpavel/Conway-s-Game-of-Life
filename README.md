@@ -1,13 +1,17 @@
-# Game of Life implemented using React and Redux
+# Game of (Colorful) Life implemented using React and Redux
 
-Implemented using [React Slingshot](https://github.com/coryhouse/react-slingshot) boilerplate.
+This is a simple (but colorful) implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life).
+
+Once you clone the repository, you should be able to start really quickly using these commands:
+
+```
+$ yarn
+$ yarn start
+```
+
+Disclaimer: Implemented using [React Slingshot](https://github.com/coryhouse/react-slingshot) boilerplate.
 
 # React Slingshot Documentation
-
-[![Build status: Linux](https://img.shields.io/travis/coryhouse/react-slingshot.svg?style=flat-square)](https://travis-ci.org/coryhouse/react-slingshot)
-[![Build status: Windows](https://img.shields.io/appveyor/ci/coryhouse/react-slingshot/master.svg?style=flat-square)](https://ci.appveyor.com/project/coryhouse/react-slingshot/branch/master)
-[![Dependency Status](https://david-dm.org/coryhouse/react-slingshot.svg?style=flat-square)](https://david-dm.org/coryhouse/react-slingshot)
-[![Coverage Status](https://img.shields.io/coveralls/coryhouse/react-slingshot/master.svg?style=flat-square)](https://coveralls.io/github/coryhouse/react-slingshot?branch=master)
 
 React Slingshot is a comprehensive starter kit for rapid application development using React.
 
@@ -32,7 +36,7 @@ This will run the automated build process, start up a webserver, and open the ap
 6. **Delete the example app files.** Once you're comfortable with how the example app works, you can [delete those files and begin creating your own app](https://github.com/coryhouse/react-slingshot/blob/master/docs/FAQ.md#i-just-want-an-empty-starter-kit).
 7. **Having issues?** See "Having Issues?" below.
 
-##Initial Machine Setup
+## Initial Machine Setup
 1. **Install [Node 4.0.0 or greater](https://nodejs.org)** - (5.0 or greater is recommended for optimal build performance). Need to run multiple versions of Node? Use [nvm](https://github.com/creationix/nvm).
 2. **Install [Git](https://git-scm.com/downloads)**.
 3. **[Disable safe write in your editor](http://webpack.github.io/docs/webpack-dev-server.html#working-with-editors-ides-supporting-safe-write)** to assure hot reloading works properly.
