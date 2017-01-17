@@ -1,4 +1,4 @@
-const patterns = {
+export const patterns = {
   block: [
     [1, 1],
     [1, 1],
