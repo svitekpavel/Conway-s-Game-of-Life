@@ -9,6 +9,13 @@ $ yarn
 $ yarn start
 ```
 
+You can run `lint` and `test` checks using these commands.
+
+```
+$ yarn lint
+$ yarn test
+```
+
 Disclaimer: Implemented using [React Slingshot](https://github.com/coryhouse/react-slingshot) boilerplate.
 
 # React Slingshot Documentation
