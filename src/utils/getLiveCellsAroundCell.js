@@ -1,5 +1,5 @@
 /**
- * 
+ * Returns count of live cells around cells at specified [x, y] in grid
  */
 export default function getLiveCellsAroundCell (x, y, grid) {
   const minX = x-1 < 0 ? 0 : x-1;
