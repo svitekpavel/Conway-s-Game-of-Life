@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
 
-import AboutPage from './AboutPage';
+import AboutPage from './../AboutPage';
 
 describe('<AboutPage />', () => {
   it('should have a header called \'Pavel Svitek\'', () => {
