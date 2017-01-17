@@ -44,7 +44,16 @@ const patterns = {
   ]
 };
 
+/**
+ * Insert one of specific patterns into the grid. If there is no such pattern
+ * as specified by patterName, unchaged grid is returned.
+ *
+ * Available patterns: block, beacon, blinker1, blinker2, toad1, toad2,
+ * glider, lwss
+ */
 export default function gridInsertPattern(patternName, grid, offsetX, offsetY) {
-  patterns[patternName].map((row, y) => row.map((cell, x) => grid[offsetY+y][offsetX+x] = cell));
+  if (Object.prototype.hasOwnProperty.call(patterns, patternName)) {
+    patterns[patternName].map((row, y) => row.map((cell, x) => grid[offsetY+y][offsetX+x] = cell));
+  }
   return grid;
 }
