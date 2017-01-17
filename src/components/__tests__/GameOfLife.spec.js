@@ -55,7 +55,7 @@ describe('<GameOfLife />', () => {
   });
 
   it('should have exactly 1 GameOfLifeGrid component', () => {
-    const wrapper = shallow(<GameOfLife epoch={epoch}/>);
+    const wrapper = getShallowedComponent(epoch, true);
     const nodes = wrapper.find(GameOfLifeGrid);
 
     expect(nodes).to.have.length(1);
