@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme'
+import chaiEnzyme from 'chai-enzyme';
 
 import GameOfLifeGrid from '../GameOfLifeGrid';
 import GridCell from '../GridCell';
 
-chai.use(chaiEnzyme())
+chai.use(chaiEnzyme());
 
 describe('<GameOfLifeGrid />', () => {
   const epoch = [

@@ -1,12 +1,12 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme'
+import chaiEnzyme from 'chai-enzyme';
 
 import GameOfLife from '../GameOfLife';
 import GameOfLifeGrid from '../GameOfLifeGrid';
 
-chai.use(chaiEnzyme())
+chai.use(chaiEnzyme());
 
 function getShallowedComponent(epoch, evolutionRunning=false) {
   return shallow(
@@ -14,7 +14,7 @@ function getShallowedComponent(epoch, evolutionRunning=false) {
       evolutionRunning={evolutionRunning}
       epoch={epoch}
       />
-  )
+  );
 }
 
 describe('<GameOfLife />', () => {

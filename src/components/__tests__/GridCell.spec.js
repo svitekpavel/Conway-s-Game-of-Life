@@ -1,11 +1,11 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import chai, { expect } from 'chai';
-import chaiEnzyme from 'chai-enzyme'
+import chaiEnzyme from 'chai-enzyme';
 
 import GridCell from '../GridCell';
 
-chai.use(chaiEnzyme())
+chai.use(chaiEnzyme());
 
 describe('<GridCell />', () => {
   it('should have exactly one span with className=\'cell\'', () => {
