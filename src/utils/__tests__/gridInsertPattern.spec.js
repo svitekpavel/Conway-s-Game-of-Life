@@ -45,4 +45,16 @@ describe('gridInsertPattern', () => {
     expect(resultGrid).to.deep.equal(expectedGrid);
   });
 
+  it('should return identical grid when specified unknown-pattern', () => {
+    const expectedGrid = [
+      [0, 1, 0, 1],
+      [0, 0, 0, 0],
+      [0, 1, 1, 0],
+      [0, 1, 1, 0],
+    ];
+    const resultGrid = gridInsertPattern('unknown-pattern', expectedGrid, 1, 2);
+
+    expect(resultGrid).to.deep.equal(expectedGrid);
+  });
+
 });
