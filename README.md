@@ -2,6 +2,8 @@
 
 This is a simple (but colorful) implementation of [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway's_Game_of_Life).
 
+![Screenshot](http://i.imgur.com/NUloA22.png)
+
 Once you clone the repository, you should be able to start really quickly using these commands:
 
 ```
