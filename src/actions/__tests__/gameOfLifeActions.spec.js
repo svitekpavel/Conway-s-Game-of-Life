@@ -10,8 +10,6 @@ import {
 } from './../gameOfLifeActions';
 
 
-// For names used in tests see
-// https://en.wikipedia.org/wiki/Conway's_Game_of_Life#ExamplesOfPatterns
 describe('gameOfLifeActions', () => {
   describe('setEpoch', () => {
     it('should return action with type=SET_EPOCH', () => {
