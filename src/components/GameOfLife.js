@@ -18,6 +18,9 @@ class GameOfLife extends React.Component {
         <div className="toolbar">
           {!evolutionRunning && <button onClick={this.props.onStartEvolution} className="start">Start evolution</button>}
           {evolutionRunning && <button onClick={this.props.onStopEvolution} className="stop">Stop evolution</button>}
+          <div>
+            Speed: <input type="text" onChange={this.props.onChangeSpeed} value={this.props.speed} />
+          </div>
         </div>
         <GameOfLifeGrid epoch={epoch}/>
       </div>

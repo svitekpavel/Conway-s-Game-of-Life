@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import GameOfLife from '../components/GameOfLife';
 import {
   setEpoch,
+  setSpeed,
   setEvolutionRunning,
 } from '../actions/gameOfLifeActions';
 import getNextEpoch from '../utils/getNextEpoch';
@@ -15,6 +16,7 @@ class GameOfLifePage extends React.Component {
     super(props);
     this.handleStartEvolution = this.handleStartEvolution.bind(this);
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
+    this.handleChangeSpeed = this.handleChangeSpeed.bind(this);
   }
 
   componentDidMount() {
@@ -49,16 +51,31 @@ class GameOfLifePage extends React.Component {
     clearInterval(this.evolutionInterval);
   }
 
+  calculateNextEpoch() {
+    const {
+      dispatch,
+      epoch,
+      speed,
+    } = this.props;
+
+    const nextEpoch = getNextEpoch(epoch);
+
+    setTimeout(() => {
+      const { evolutionRunning } = this.props;
+      dispatch(setEpoch(nextEpoch));
+
+      if (evolutionRunning) {
+        this.calculateNextEpoch();
+      }
+    }, speed);
+  }
+
   handleStartEvolution() {
     // start the evolution here
     const { dispatch } = this.props;
-    dispatch(setEvolutionRunning(true));
 
-    this.evolutionInterval = setInterval(() => {
-      const { dispatch, epoch } = this.props;
-      const nextEpoch = getNextEpoch(epoch);
-      dispatch(setEpoch(nextEpoch));
-    }, 500);
+    dispatch(setEvolutionRunning(true));
+    this.calculateNextEpoch();
   }
 
   handleStopEvolution() {
@@ -67,13 +84,22 @@ class GameOfLifePage extends React.Component {
     clearInterval(this.evolutionInterval);
   }
 
+  handleChangeSpeed(event) {
+    const { dispatch } = this.props;
+    const { value } = event.target;
+    dispatch(setSpeed(value));
+    // restart interval
+  }
+
   render() {
     return (
       <GameOfLife
         epoch={this.props.epoch}
+        speed={this.props.speed}
         evolutionRunning={this.props.evolutionRunning}
         onStartEvolution={this.handleStartEvolution}
         onStopEvolution={this.handleStopEvolution}
+        onChangeSpeed={this.handleChangeSpeed}
         />
     );
   }
@@ -89,6 +115,7 @@ function mapStateToProps(state) {
   return {
     epoch: state.gameOfLife.epoch,
     evolutionRunning: state.gameOfLife.evolutionRunning,
+    speed: state.gameOfLife.speed,
   };
 }
 

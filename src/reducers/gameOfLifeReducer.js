@@ -1,4 +1,5 @@
 import {
+  SET_SPEED,
   SET_EPOCH,
   SET_EVOLUTION_RUNNING,
 } from '../constants/actionTypes';
@@ -10,6 +11,11 @@ export default function gameOfLifeReducer(state = initialState.gameOfLife, actio
       // For this example, just simulating a save by changing date modified.
       // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
       return Object.assign({}, state, { epoch: action.epoch });
+
+    case SET_SPEED:
+      // For this example, just simulating a save by changing date modified.
+      // In a real app using Redux, you might use redux-thunk and handle the async call in fuelSavingsActions.js
+      return Object.assign({}, state, { speed: action.speed });
 
     case SET_EVOLUTION_RUNNING:
       return Object.assign({}, state, { evolutionRunning: action.evolutionRunning });

@@ -10,5 +10,6 @@ export default {
   gameOfLife: {
     epoch: initialEpoch,
     evolutionRunning: false,
+    speed: 500,
   }
 };

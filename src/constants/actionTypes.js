@@ -1,2 +1,3 @@
 export const SET_EPOCH = 'SET_EPOCH';
 export const SET_EVOLUTION_RUNNING = 'SET_EVOLUTION_RUNNING';
+export const SET_SPEED = 'SET_SPEED';
