@@ -5,6 +5,10 @@ import GameOfLifeGrid from './GameOfLifeGrid';
 class GameOfLife extends React.Component {
   render() {
     const { epoch, evolutionRunning } = this.props;
+    const Y = epoch.length;
+    const X = epoch[0].length;
+    const randomX = Math.ceil(Math.random() * X)-1;
+    const randomY = Math.ceil(Math.random() * Y)-1;
     return (
       <div>
         <div className="header">
@@ -23,6 +27,11 @@ class GameOfLife extends React.Component {
           </div>
         </div>
         <GameOfLifeGrid epoch={epoch} onGridClick={this.props.onGridClick}/>
+        <div className="toolbar">
+          <button onClick={() => this.props.onInsertBeacon(randomX, randomY)}>Beacon</button>
+          <button onClick={() => this.props.onInsertGlider(randomX, randomY)}>Glider</button>
+          <button onClick={() => this.props.onInsertLwss(randomX, randomY)}>LWSS</button>
+        </div>
       </div>
     );
   }

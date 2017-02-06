@@ -18,6 +18,9 @@ class GameOfLifePage extends React.Component {
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
     this.handleChangeSpeed = this.handleChangeSpeed.bind(this);
     this.handlePatternInsert = this.handlePatternInsert.bind(this);
+    this.handleInsertBeacon = this.handlePatternInsert.bind(this, 'beacon');
+    this.handleInsertGlider = this.handlePatternInsert.bind(this, 'glider');
+    this.handleInsertLwss = this.handlePatternInsert.bind(this, 'lwss');
   }
 
   componentDidMount() {
@@ -73,13 +76,13 @@ class GameOfLifePage extends React.Component {
     }, speed);
   }
 
-  handlePatternInsert(x, y) {
+  handlePatternInsert(patterName, x, y) {
     const {
       epoch,
       dispatch,
     } = this.props;
 
-    const nextEpoch = gridInsertPattern('blinker2', epoch, x, y);
+    const nextEpoch = gridInsertPattern(patterName, epoch, x, y);
     dispatch(setEpoch(nextEpoch));
   }
 
@@ -114,6 +117,9 @@ class GameOfLifePage extends React.Component {
         onStopEvolution={this.handleStopEvolution}
         onChangeSpeed={this.handleChangeSpeed}
         onGridClick={this.handlePatternInsert}
+        onInsertBeacon={this.handleInsertBeacon}
+        onInsertGlider={this.handleInsertGlider}
+        onInsertLwss={this.handleInsertLwss}
         />
     );
   }
