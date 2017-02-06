@@ -22,7 +22,7 @@ class GameOfLife extends React.Component {
             Speed: <input type="text" onChange={this.props.onChangeSpeed} value={this.props.speed} />
           </div>
         </div>
-        <GameOfLifeGrid epoch={epoch}/>
+        <GameOfLifeGrid epoch={epoch} onGridClick={this.props.onGridClick}/>
       </div>
     );
   }

@@ -52,8 +52,10 @@ export const patterns = {
  * glider, lwss
  */
 export default function gridInsertPattern(patternName, grid, offsetX, offsetY) {
+  const newGrid = grid.map((row,y) => row.map((col,x) => grid[y][x]));
+
   if (Object.prototype.hasOwnProperty.call(patterns, patternName)) {
-    patterns[patternName].map((row, y) => row.map((cell, x) => grid[offsetY+y][offsetX+x] = cell));
+    patterns[patternName].map((row, y) => row.map((cell, x) => newGrid[offsetY+y][offsetX+x] = cell));
   }
-  return grid;
+  return newGrid;
 }

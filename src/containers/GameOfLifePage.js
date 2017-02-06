@@ -17,6 +17,7 @@ class GameOfLifePage extends React.Component {
     this.handleStartEvolution = this.handleStartEvolution.bind(this);
     this.handleStopEvolution = this.handleStopEvolution.bind(this);
     this.handleChangeSpeed = this.handleChangeSpeed.bind(this);
+    this.handlePatternInsert = this.handlePatternInsert.bind(this);
   }
 
   componentDidMount() {
@@ -54,20 +55,32 @@ class GameOfLifePage extends React.Component {
   calculateNextEpoch() {
     const {
       dispatch,
-      epoch,
       speed,
     } = this.props;
 
-    const nextEpoch = getNextEpoch(epoch);
-
     setTimeout(() => {
-      const { evolutionRunning } = this.props;
+      const {
+        evolutionRunning,
+        epoch,
+      } = this.props;
+
+      const nextEpoch = getNextEpoch(epoch);
       dispatch(setEpoch(nextEpoch));
 
       if (evolutionRunning) {
         this.calculateNextEpoch();
       }
     }, speed);
+  }
+
+  handlePatternInsert(x, y) {
+    const {
+      epoch,
+      dispatch,
+    } = this.props;
+
+    const nextEpoch = gridInsertPattern('blinker2', epoch, x, y);
+    dispatch(setEpoch(nextEpoch));
   }
 
   handleStartEvolution() {
@@ -100,6 +113,7 @@ class GameOfLifePage extends React.Component {
         onStartEvolution={this.handleStartEvolution}
         onStopEvolution={this.handleStopEvolution}
         onChangeSpeed={this.handleChangeSpeed}
+        onGridClick={this.handlePatternInsert}
         />
     );
   }

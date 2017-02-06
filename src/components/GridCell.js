@@ -10,7 +10,12 @@ const getCellClasses = (cell) => {
 
 const GridCell = (props) => {
   const classes = getCellClasses(props.cell);
-  return <span className={classNames(classes)}/>;
+  return (
+    <span
+      onClick={() => props.onGridClick(props.x, props.y)} 
+      className={classNames(classes)}
+      />
+  );
 };
 
 GridCell.propTypes = {
